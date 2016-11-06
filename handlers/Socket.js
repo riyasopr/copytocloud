@@ -1,3 +1,6 @@
+$(window).on('beforeunload', function(){
+    socket.close();
+});
 var Socket = function (app, io) {
 
         io.on('connection', function (client) {

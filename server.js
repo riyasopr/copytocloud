@@ -55,12 +55,14 @@ x = 101;
 var server = app.listen(app.get('port'), function() {
   console.log("Node app is running at localhost:" + app.get('port'))
 });
+/*
 var io = require('socket.io')(server);
 io.configure(function () { 
   io.set("transports", ["xhr-polling"]); 
   io.set("polling duration", 10); 
 });
 require('./handlers/Socket')(app,io);
+*/
 app.use('/', routes);
 app.use('/api', api);
 app.use('/users', users);

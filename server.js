@@ -1,5 +1,4 @@
 var express = require('express');
-var session = require('express-session');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
@@ -24,7 +23,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(session({secret: 'ssshhhhh'}));
 
 //Some global use configuration
 app.use((req, res, next)=> {
@@ -83,15 +81,6 @@ if (app.get('env') === 'development') {
         });
     });
 }
-var sess;
-app.get('/index',function(req,res){
-  sess = req.session;
-//In this we are assigning email to sess.email variable.
-//email comes from HTML page.
-  sess.durl=req.query['downurl'];
-res.write(sess.durl); 
-  res.end('done');
-});
 // production error handler
 // no stacktraces leaked to user
 app.use(function (err, req, res, next) {

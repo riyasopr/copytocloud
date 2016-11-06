@@ -50,10 +50,10 @@ app.use('/api', (req, res, next)=> {
     return next();
 });
 x = 101;
-var port = process.env.port || 1337;
-var server = app.listen(process.env.PORT || 1337);
+var port = process.env.port || 8000;
+var server = app.listen(process.env.PORT || 8000);
 //var io = require('socket.io')(server);
-var io = new io("ws://copytocloud.azurewebsites.net:"+port);
+var io = new io("ws://copytocloud.azurewebsites.net:8000");
 require('./handlers/Socket')(app,io);
 app.use('/', routes);
 app.use('/api', api);

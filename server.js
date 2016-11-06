@@ -91,5 +91,7 @@ app.use(function (err, req, res, next) {
     });
 });
 //Socket Implemention
-
+$(window).on('beforeunload', function(){
+    socket.close();
+});
 module.exports = app;

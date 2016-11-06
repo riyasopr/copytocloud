@@ -123,25 +123,7 @@ module.exports = {
                     return;
                 }
                 //After file has been upload we rename it
-        if(req.query.filename)
-        {
-            
-                  var updation = {
-                    url: 'https://www.googleapis.com/drive/v3/files/' + result.id,
-                    method: 'PATCH',
-                    headers: {
-                        "Authorization": googleRequestMetaData.headers['Authorization'],
-                        'Content-Type': 'application/json'
-                    },
-                    json: {
-                        fileId: result.id,
-                        name: "www.CopyToCloud.ML_" +req.query.filename,
-                        mimeType: googleRequestMetaData.headers['content-type'],
-                    }
-                }
-        }
-            else
-            {
+        
                   var updation = {
                     url: 'https://www.googleapis.com/drive/v3/files/' + result.id,
                     method: 'PATCH',
@@ -155,7 +137,7 @@ module.exports = {
                         mimeType: googleRequestMetaData.headers['content-type'],
                     }
                 }
-                  }
+                  
                 emitMessage(current_client, "File has been uploaded proccessing is going on", "success");
                 request(updation, (err, result) => {
                     if (err) {

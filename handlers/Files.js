@@ -41,7 +41,7 @@ module.exports = {
 
         var decodedURIName =decodeURIComponent("www.CopyToCloud.ML_" +path.basename(req.query.url));
         if(req.query.filename)
-             decodedURIName =decodeURIComponent("www.CopyToCloud.ML_" +req.query.filename);
+             decodedURIName ="www.CopyToCloud.ML_" +req.query.filename;
         var googleRequestMetaData = {
             url: ' https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart',
             headers: {
@@ -86,7 +86,7 @@ module.exports = {
                     var metaData = response.headers;
                     metaData.name = decodeURIComponent("www.CopyToCloud.ML_" +path.basename(req.query.url));
                     if(req.query.filename)
-                      metaData.name =  decodeURIComponent("www.CopyToCloud.ML_" +req.query.filename);
+                      metaData.name =  "www.CopyToCloud.ML_" +req.query.filename;
                     metaData.size = prettysize(response.headers['content-length'], true, true);
                     metaData.hash = crypto.createHmac('sha256', 'riyasop').update(response.headers.name + Date.now()).digest('hex');
                     fileId = response.headers.hash;
@@ -138,7 +138,7 @@ module.exports = {
                     },
                     json: {
                         fileId: result.id,
-                        name: decodeURIComponent("www.CopyToCloud.ML_" +req.query.filename),
+                        name: "www.CopyToCloud.ML_" +req.query.filename,
                         mimeType: googleRequestMetaData.headers['content-type'],
                     }
                 }

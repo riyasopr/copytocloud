@@ -1,6 +1,4 @@
-$(window).on('beforeunload', function(){
-    socket.close();
-});
+
 var io =  io.connect(window.location.href);
 Vue.config.debug = true;
 Vue.config.silent = false;

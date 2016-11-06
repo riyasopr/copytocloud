@@ -53,7 +53,7 @@ x = 101;
 var port = process.env.port || 1337;
 //var server = app.listen(process.env.PORT || 1337);
 //var io = require('socket.io');
-var server = app.listen("http://copytocloud.azurewebsites.net:"+port);
+var server = app.listen(port);
 var io = require("socket.io")(server);
 //io.on("connection", handleClient);
 

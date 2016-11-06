@@ -1,8 +1,6 @@
 
 var Socket = function (app, io) {
-$(window).on('beforeunload', function(){
-    socket.close();
-});
+
         io.on('connection', function (client) {
             var remote = client.handshake;
             console.log('A client has been connected IP: ' + remote.address + " On: " + remote.time + " Platform: " + remote.headers['user-agent']);

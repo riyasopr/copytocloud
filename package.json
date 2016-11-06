@@ -25,6 +25,6 @@
 "express-session": "^1.7.6"
   },
   "engines": {
-    "node": "5.7.0"
+    "node": "4.6.2"
   }
 }

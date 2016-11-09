@@ -8,11 +8,11 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var api = require('./routes/Api');
 var app = express();
- 
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
- 
+
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
@@ -53,10 +53,10 @@ x = 101;
 var port = process.env.port || 1337;
 //var server = app.listen(process.env.PORT || 1337);
 //var io = require('socket.io');
-var server = app.listen(port);
-var io = require("socket.io")(server);
+//var server = app.listen(port);
+//var io = require("socket.io")(server);
 //io.on("connection", handleClient);
-
+var io = require('express-ws')(app); 
 //var io = new io("ws://copytocloud.azurewebsites.net:8000");
 require('./handlers/Socket')(app,io);
 //app.listen(process.env.PORT || 1337);
